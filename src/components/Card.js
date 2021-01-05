@@ -29,17 +29,17 @@ function Card(props) {
         setEmail(await AsyncStorage.getItem('email'))
       if(await AsyncStorage.getItem('phone'))
         setPhone(await AsyncStorage.getItem('phone'))
+        if(await AsyncStorage.getItem('address'))
+        setAddress(await AsyncStorage.getItem('address'))
+        if(await AsyncStorage.getItem('position'))
+        setPosition(await AsyncStorage.getItem('position'))
       if (background !== null) {
         setBg(background)
-      const add = await AsyncStorage.getItem('address')
-      const pos = await AsyncStorage.getItem('position')
+    
       const pfp = Json.parse(await AsyncStorage.getItem('profilepicture'))
       if(pfp)
         setFileUri(pfp)
-      if(add)
-        setAddress(add)
-      if(pos)
-        setPosition(pos)
+     
       }
       
     } catch (e) {
@@ -593,7 +593,7 @@ paddingTop:14
 
 
   card_small_free1:{
-    width:"100%",
+    width:"90%",
     backgroundColor:"#fff",
     height:150,
     borderRadius:5,
@@ -622,7 +622,7 @@ paddingTop:14
 
   },
     card_small_free2:{
-    width:"70%",
+    width:"90%",
     backgroundColor:"#fff",
     height:150,
     borderRadius:5,
@@ -660,7 +660,7 @@ paddingTop:14
 
 
       card_small_premium1:{
-   width:"100%",
+   width:"90%",
     backgroundColor:"#fff",
     height:150,
     borderRadius:5,
@@ -695,7 +695,7 @@ paddingTop:14
 
 
       card_small_premium2:{
-   width:"100%",
+   width:"90%",
     backgroundColor:"#fff",
     height:150,
     borderRadius:5,

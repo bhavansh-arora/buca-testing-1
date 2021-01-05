@@ -121,9 +121,21 @@ function BuiltDesign({navigation}) {
     {
         setIsVisible(false)
         if(email)
-        var link = 'https://contact-api-task.herokuapp.com/updateprofile/user/'+email
-        console.log(link)
+        //alert("called")
+      
         {
+            var link = 'https://api-buca.herokuapp.com/updateprofile/'+email
+            console.log(link)
+            var params = {
+                position: position,
+                address:address,
+            };
+            
+            var formData = new FormData();
+            
+            for (var k in params) {
+                formData.append(k, params[k]);
+            }
             
             try{
                 fetch(link,{
@@ -131,22 +143,15 @@ function BuiltDesign({navigation}) {
                     headers:{
                         Accept: 'application/x-www-form-urlencoded',
                     },
-                    body:JSON.stringify({
-                        position: position,
-                        address:address,
-                        linkedinid:linkedin,
-                        instagramid:instagram,
-                        facebookid:facebook,
-                        websitelink:website
-                    })
+                    body:formData
                   })
                   .then((response) => {
-                    alert(response);
+                //    alert(response);
                     
                   })
             }catch(e)
             {
-                alert(e)
+              //  alert(e)
             }
             
               navigation.navigate('Design_buca_last')

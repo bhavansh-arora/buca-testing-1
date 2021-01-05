@@ -44,6 +44,10 @@ function Home({navigation}) {
         setName(await AsyncStorage.getItem('name'));
       if(await AsyncStorage.getItem('id'))
         setId(await AsyncStorage.getItem('id'))
+        if(await AsyncStorage.getItem('address'))
+        setAddress(await AsyncStorage.getItem('address'))
+        if(await AsyncStorage.getItem('position'))
+        setPosition(await AsyncStorage.getItem('position'))
     } catch (e) {
       alert('Failed to fetch the data from storage');
     }

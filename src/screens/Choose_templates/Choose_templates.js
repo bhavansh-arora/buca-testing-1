@@ -29,10 +29,10 @@ function Choose_templates({navigation}) {
 </View>
 <ScrollView horizontal>
     <View style={{flexDirection:'row', flex:1}}>
-        <View style={{width:350, paddingTop:15}}>
+        <View style={{width:350, paddingTop:15,}}>
             <Card image_size="30" svg_width="8" svg_width_pin="10" value={1} big={false} />
         </View>
-        <View style={{width:350, padding:15}}>
+        <View style={{width:350, paddingVertical:15}}>
             <Card image_size="30" svg_width="8" svg_width_pin="10" value={2} big={false}  />
         </View>
     </View>
@@ -49,10 +49,10 @@ function Choose_templates({navigation}) {
 <ScrollView horizontal>
     <View style={{flexDirection:'row', flex:1}}>
         <View style={{width:350, paddingTop:15}}>
-            <Card image_size="30" svg_width="8" svg_width_pin="10" value={1} big={false} />
+            <Card image_size="30" svg_width="8" svg_width_pin="10" value={3} big={false} />
         </View>
-        <View style={{width:350, padding:15}}>
-            <Card image_size="30" svg_width="8" svg_width_pin="10" value={2} big={false}  />
+        <View style={{width:350,paddingVertical:15}}>
+            <Card image_size="30" svg_width="8" svg_width_pin="10" value={4} big={false}  />
         </View>
     </View>
 </ScrollView>

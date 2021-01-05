@@ -324,6 +324,8 @@ return false;
           <TextInput
             onChangeText={(val) => setPassword(val)}
             autoCapitalize="none"
+            secureTextEntry={true}
+
             style={
 passError
 ?styles.password_input_error
@@ -344,6 +346,7 @@ passError
                 
           <TextInput
                       onChangeText={(val) => setcPassword(val)}
+                      secureTextEntry={true}
 
             autoCapitalize="none"
             style={

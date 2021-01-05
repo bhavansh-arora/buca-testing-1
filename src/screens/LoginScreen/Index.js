@@ -26,6 +26,7 @@ import {
   LoginManager,
 } from 'react-native-fbsdk';
 import BottomSheet from 'reanimated-bottom-sheet';
+import SvgUri from 'react-native-svg-uri';
 
 
 function LoginIndex({...props}) {
@@ -43,6 +44,8 @@ function LoginIndex({...props}) {
     name,
     countryCode,
     contactList,
+    position,
+    address
   } = props;
   
   const sheetRef = React.useRef(null);
@@ -89,6 +92,9 @@ function LoginIndex({...props}) {
       await AsyncStorage.setItem('authenticated', JSON.stringify(authenticated))
       await AsyncStorage.setItem('biometery', JSON.stringify(biometery));
       await AsyncStorage.setItem('password', password);
+      await AsyncStorage.setItem('position',position);
+      await AsyncStorage.setItem('address',address);
+
      // alert('Data successfully saved')
     } catch (e) {
       alert(e);
@@ -528,6 +534,7 @@ function LoginIndex({...props}) {
                     style={{alignSelf: 'center', marginTop: 4, marginRight: 5}}
                     source={require('../../assets/tick.png')}
                   />
+                  
                 </View>
                 <Text style={styles.remember}>Remember me</Text>
               </TouchableOpacity>
@@ -553,17 +560,17 @@ function LoginIndex({...props}) {
               <Text style={styles.register}>Register</Text>
             </View>
           </TouchableOpacity>
-          <View style={{flexDirection:'row', justifyContent:'space-around', flex:1, paddingTop:10}}>
+          <View style={{flexDirection:'row', justifyContent:'space-around', flex:1, paddingTop:30}}>
           <TouchableOpacity
             onPress={() => loginWithFacebook()}
-            style={{marginTop:'2%'}}>
+            style={{marginTop:'2%',flex:1}}>
             <View style={styles.facebook_login}>
               <Text style={styles.button_text}>Facebook</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => loginWithGoogle()}
-            style={{marginTop:'2%'}}>
+            style={{marginTop:'2%',flex:1}}>
             <View style={styles.google_login}>
               <Text style={styles.button_text}>Google</Text>
             </View>
@@ -588,6 +595,8 @@ const mapStateToProps = (state) => {
     phNumber: state.loginReg.phNumber || '',
     countryCode: state.loginReg.countryCode || '',
     contactList: state.loginReg.contactList || '',
+    address: state.loginReg.address || '',
+    position: state.loginReg.position || '',
   };
 };
 
@@ -638,7 +647,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding:15,
-    width:160,
+    width:"95%",
     flex:1,
   },
   google_login:{
@@ -648,7 +657,7 @@ const styles = StyleSheet.create({
     padding:15,
     alignItems: 'center',
     justifyContent: 'center',
-    width:160,
+    width:"100%",
     flex:1,
   },
   forget: {

@@ -43,6 +43,8 @@ export default function LoginReg(state = {}, action) {
         newState.countryCode = action.payload.data.data.countryCode;
         newState.email = action.payload.data.data.ema;
         newState.contactList = action.payload.data.data.contactList;
+        newState.address = action.payload.data.data.address;
+        newState.position = action.payload.data.data.position;
         console.log(action.payload.data.data.countryCode)
       } else {
 
